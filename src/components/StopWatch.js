@@ -18,7 +18,7 @@ class StopWatch extends React.Component{
 
   render() {
     return <>
-    <h1>Stop Watch</h1>
+    // <h1>Stop Watch</h1>
     <div>0ms</div>
     <br />
     <button>start</button>
