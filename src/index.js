@@ -1,12 +1,41 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { createGlobalStyle } from 'styled-components';
+import App from './components/App';
+import configureStore from './store/configureStore';
+import { Grid } from 'semantic-ui-react'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const cacheStore = window.localStorage.getItem('store') || {};
+const store = configureStore(cacheStore);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+render(
+  <Provider store={store}>
+  <Grid align="center" celled padded style={{height: '100vh'}}>
+    <Grid.Row style={{height: '50%'}}>
+      <Grid.Column width={5}>
+        <p>One</p>
+      </Grid.Column>
+      <Grid.Column width={6}>
+        <App />
+      </Grid.Column>
+      <Grid.Column width={5}>
+        <p>Three</p>
+      </Grid.Column>
+    </Grid.Row>
+
+    <Grid.Row style={{height: '50%'}}>
+      <Grid.Column width={5}>
+        <p>Three</p>
+      </Grid.Column>
+      <Grid.Column width={6}>
+        <p>Four</p>
+      </Grid.Column>
+      <Grid.Column width={5}>
+        <p>Five</p>
+      </Grid.Column>
+    </Grid.Row>
+  </Grid>
+  </Provider>,
+  document.getElementById('root'),
+);
