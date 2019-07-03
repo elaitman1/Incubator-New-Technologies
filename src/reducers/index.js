@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux'
-// import todos from './todos'
+import stopwatch from './stopwatch'
 // import visibilityFilter from './visibilityFilter'
 
 const rootReducer = combineReducers({
-  // todos,
-  // visibilityFilter
+  stopwatch,
 })
 
 export default rootReducer
