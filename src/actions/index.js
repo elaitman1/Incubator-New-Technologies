@@ -1,3 +1,9 @@
 import * as types from '../constants/ActionTypes'
 
-export const clicked = status => ({type: types.STATUS, status })
+export const changeStartClickedStatus = value => {
+
+  return ({
+    type: types.CHANGE_START_CLICKED_STATUS,
+    payload: !value
+  })
+}

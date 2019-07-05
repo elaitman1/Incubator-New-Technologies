@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Grid } from 'semantic-ui-react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {clicked} from '../actions'
+import { changeStartClickedStatus } from '../actions'
 
 class StopWatch extends React.Component{
 
@@ -12,16 +12,17 @@ class StopWatch extends React.Component{
   };
 
   handleClick = (event) => {
+
     if(event.target.innerHTML === "Start"){
-      debugger
       const startTime = Date.now() - this.state.runningTime;
       this.timer = setInterval(() => {
         this.setState({ runningTime: Date.now() - startTime });
       }, 10)
-      this.props.clicked('true')
+      this.props.changeStartClickedStatus(this.props.startClickedStatus)
     }else{
+      
       clearInterval(this.timer);
-      this.props.addTodo('false')
+      this.props.changeStartClickedStatus(this.props.startClickedStatus)
     }
   }
 
@@ -79,7 +80,7 @@ class StopWatch extends React.Component{
             margin: '1em',
             padding: '0.25em 1em',
             border: '2px solid palevioletred',
-            borderRadius: '3px' }} onClick={this.handleClick}>{status ? 'Stop' : 'Start'}</button>
+            borderRadius: '3px' }} onClick={this.handleClick}>{this.props.startClickedStatus ? 'Stop' : 'Start'}</button>
             <button style={{
               color: 'palevioletred',
               fontSize: '1em',
@@ -109,14 +110,16 @@ class StopWatch extends React.Component{
   }
 
 const mapStateToProps = (state) => {
-  debugger
+
   const { stopwatch } = state
-    return {clicked: stopwatch.status}
+    return {startClickedStatus: stopwatch.startClicked}
 }
 
+export default connect(
+  mapStateToProps,
+  { changeStartClickedStatus }
+)(StopWatch);
 
-
-export default connect(mapStateToProps)(StopWatch);
 
 //one time stays at the same time one increases and we subtract the difference to get the seconds
 
