@@ -1,10 +1,9 @@
 import React from "react";
 import styled from 'styled-components'
 import { Grid } from 'semantic-ui-react'
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { changeStartClickedStatus } from '../actions'
-
 class StopWatch extends React.Component{
 
   state = {
@@ -12,7 +11,6 @@ class StopWatch extends React.Component{
   };
 
   handleClick = (event) => {
-
     if(event.target.innerHTML === "Start"){
       const startTime = Date.now() - this.state.runningTime;
       this.timer = setInterval(() => {
@@ -20,7 +18,6 @@ class StopWatch extends React.Component{
       }, 10)
       this.props.changeStartClickedStatus(this.props.startClickedStatus)
     }else{
-      
       clearInterval(this.timer);
       this.props.changeStartClickedStatus(this.props.startClickedStatus)
     }
@@ -59,7 +56,7 @@ class StopWatch extends React.Component{
   //   display: block;
   // `;
 
-      const { status, runningTime } = this.state;
+      const { runningTime } = this.state;
       let centiseconds = ("0" + (Math.floor(runningTime / 10) % 100)).slice(-2);
       let seconds = ("0" + (Math.floor(runningTime / 1000) % 60)).slice(-2);
       let minutes = ("0" + (Math.floor(runningTime / 60000) % 60)).slice(-2);
@@ -105,9 +102,9 @@ class StopWatch extends React.Component{
     hours:'00',
   }
 
-  StopWatch.propTypes = {
-    //
-  }
+  // StopWatch.propTypes = {
+  //   //
+  // }
 
 const mapStateToProps = (state) => {
 
@@ -119,8 +116,3 @@ export default connect(
   mapStateToProps,
   { changeStartClickedStatus }
 )(StopWatch);
-
-
-//one time stays at the same time one increases and we subtract the difference to get the seconds
-
-// if the inner is start thenwe change it stop and we start the timer. we must also start the running time. then when it is done, we must stop. so to start we need running time and clicked to be true or false

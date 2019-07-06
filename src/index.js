@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createGlobalStyle } from 'styled-components';
 import App from './components/App';
 import configureStore from './store/configureStore';
 import { Grid } from 'semantic-ui-react'
@@ -39,3 +38,5 @@ render(
   </Provider>,
   document.getElementById('root'),
 );
+
+//i must redux form, map, jest with tests, react native.

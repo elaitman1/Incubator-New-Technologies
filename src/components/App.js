@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import StopWatch from './StopWatch'
-import styled from 'styled-components'
-import { Grid} from 'semantic-ui-react'
 
 const App = () => (
     <>
