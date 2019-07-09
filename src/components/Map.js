@@ -212,7 +212,6 @@ defaultOptions={{styles: mapStyles}}
         <Marker key={park.properties.PARK_ID} position={{lat: park.geometry.coordinates[1], lng: park.geometry.coordinates[0]}}
         onClick={() => {
           setSelectedPark(park)
-          //set selected park is the park that it is on as it is looping through
         }}
         icon={{
           url: '/skater.svg',
