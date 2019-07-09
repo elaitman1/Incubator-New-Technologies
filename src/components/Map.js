@@ -203,7 +203,6 @@ function Map() {
   //selected park is value of our state and setselectedpark will be the setter for it
   //hook value and setter
   return (
-    <GoogleMap
       defaultZoom={10}
       defaultCenter={{ lat: 45.4211, lng: -75.6903 }}
 defaultOptions={{styles: mapStyles}}
