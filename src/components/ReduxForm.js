@@ -98,8 +98,9 @@ const validate = values => {
   return errors
 }
 
-const createRenderer = render => ({ input, meta, label, ...rest }) =>
-  <div
+const createRenderer = render => ({ input, meta, label, ...rest }) =>{
+//<pre>{JSON.stringify(meta, 0,2)}</pre>
+  return <div
     className={[
       meta.error && meta.touched ? 'error' : '',
       meta.active ? 'active' : ''
@@ -115,14 +116,18 @@ const createRenderer = render => ({ input, meta, label, ...rest }) =>
         {meta.error}
       </span>}
   </div>
+}
 
-const RenderInput = createRenderer((input, label) =>
-  <input {...input} placeholder={label} />
+const RenderInput = createRenderer((input, label) =>{
+  debugger
+  return <input {...input} placeholder={label} />
+}
 )
 
 const RenderSelect = createRenderer((input, label, { children }) =>
   <select {...input}>
     {children}
+    //the children here is taken from createRenderer
   </select>
 )
 

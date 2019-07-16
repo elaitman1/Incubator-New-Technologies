@@ -4,7 +4,7 @@ import StopWatch from './StopWatch'
 import { Grid } from 'semantic-ui-react'
 import WrappedMap from './Map'
 import ReduxForm from './ReduxForm'
-
+import Practice from './Practice'
 const App = () => (
   <Grid align="center" celled padded style={{height: '100vh'}}>
     <Grid.Row style={{height: '50%'}}>
@@ -25,7 +25,7 @@ const App = () => (
     </Grid.Row>
     <Grid.Row style={{height: '50%'}}>
       <Grid.Column width={5}>
-        <p>Three</p>
+        <Practice />
       </Grid.Column>
       <Grid.Column width={6}>
         <p>Four</p>
