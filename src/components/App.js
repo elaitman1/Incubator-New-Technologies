@@ -1,12 +1,15 @@
-import React from 'react';
+import React, {Suspense, lazy} from 'react';
 import { connect } from 'react-redux'
 import StopWatch from './StopWatch'
 import { Grid } from 'semantic-ui-react'
 import WrappedMap from './Map'
 import ReduxForm from './ReduxForm'
 import Practice from './Practice'
+
+
 const App = () => (
   <Grid align="center" celled padded style={{height: '100vh'}}>
+
     <Grid.Row style={{height: '50%'}}>
       <Grid.Column width={5}>
       <WrappedMap
