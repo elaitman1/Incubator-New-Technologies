@@ -1,15 +1,15 @@
 import React, {Suspense, lazy} from 'react';
 import { connect } from 'react-redux'
-import StopWatch from './StopWatch'
 import { Grid } from 'semantic-ui-react'
 import WrappedMap from './Map'
+import StopWatch from './StopWatch'
 import ReduxForm from './ReduxForm'
 import Practice from './Practice'
 
 
 const App = () => (
   <Grid align="center" celled padded style={{height: '100vh'}}>
-  <Suspense>
+  <Suspense fallback={<h1>Still Loading...</h1>}>
     <Grid.Row style={{height: '50%'}}>
       <Grid.Column width={5}>
       <WrappedMap
