@@ -9,7 +9,7 @@ import Practice from './Practice'
 
 const App = () => (
   <Grid align="center" celled padded style={{height: '100vh'}}>
-
+  <Suspense>
     <Grid.Row style={{height: '50%'}}>
       <Grid.Column width={5}>
       <WrappedMap
@@ -37,6 +37,7 @@ const App = () => (
         <p>Five</p>
       </Grid.Column>
     </Grid.Row>
+  </Suspense>
   </Grid>
 )
 
