@@ -1,10 +1,12 @@
 import React, {Suspense, lazy} from 'react';
+import ReactDOM from 'react-dom';
 import { connect } from 'react-redux'
 import { Grid } from 'semantic-ui-react'
-import WrappedMap from './Map'
-import StopWatch from './StopWatch'
-import ReduxForm from './ReduxForm'
-import Practice from './Practice'
+
+const WrappedMap = lazy(() => import('./Map'))
+const StopWatch = lazy(() => import('./StopWatch'))
+const ReduxForm = lazy(() => import('./ReduxForm'))
+const Practice = lazy(() => import('./Practice'))
 
 
 const App = () => (
@@ -42,10 +44,7 @@ const App = () => (
 )
 
 
-const mapStateToProps = state => ({
-  // todosCount: state.todos.length,
-  // completedCount: getCompletedTodoCount(state)
-})
+
 
 export default connect(
   mapStateToProps
