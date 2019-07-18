@@ -44,7 +44,10 @@ const App = () => (
 )
 
 
-
+const mapStateToProps = state => ({
+  // todosCount: state.todos.length,
+  // completedCount: getCompletedTodoCount(state)
+})
 
 export default connect(
   mapStateToProps
