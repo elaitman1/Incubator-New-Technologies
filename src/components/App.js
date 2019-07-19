@@ -6,7 +6,8 @@ import { Grid } from 'semantic-ui-react'
 const WrappedMap = lazy(() => import('./Map'))
 const StopWatch = lazy(() => import('./StopWatch'))
 const ReduxForm = lazy(() => import('./ReduxForm'))
-const Practice = lazy(() => import('./Practice'))
+const ClickCounter = lazy(() => import('./ClickCounter'))
+const HoverCounter = lazy(() => import('./HoverCounter'))
 
 
 const App = () => (
@@ -30,7 +31,8 @@ const App = () => (
     </Grid.Row>
     <Grid.Row style={{height: '50%'}}>
       <Grid.Column width={5}>
-        <Practice />
+        <ClickCounter />
+        <HoverCounter />
       </Grid.Column>
       <Grid.Column width={6}>
         <p>Four</p>
